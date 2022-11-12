@@ -1,0 +1,26 @@
+{
+  "name": "vact-v2",
+  "version": "1.0.0",
+  "description": "Vact's JavaScript version",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "postinstall": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlockybombDEV/Vact-V2.git"
+  },
+  "author": "Blockybomb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BlockybombDEV/Vact-V2/issues"
+  },
+  "homepage": "https://github.com/BlockybombDEV/Vact-V2#readme",
+  "dependencies": {
+    "discord.js": "^14.6.0",
+    "dotenv": "^16.0.3",
+    "mongoose": "^6.7.2",
+    "nodemon": "^2.0.20"
+  }
+}

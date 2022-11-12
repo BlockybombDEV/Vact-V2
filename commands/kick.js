@@ -3,28 +3,28 @@ const { SlashCommandBuilder, PermissionFlagsBits, EmbedBuilder } = require('disc
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('ban')
-        .setDescription('Ban a member')
+        .setName('kick')
+        .setDescription('Kick a member')
         .addUserOption(option =>
             option
                 .setName('target')
-                .setDescription('The member to ban')
+                .setDescription('The member to kick')
                 .setRequired(true))
             .addStringOption(option =>
                 option
                 .setName('reason')
                 .setDescription('The reason for the ban'))
-            .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
+            .setDefaultMemberPermissions(PermissionFlagsBits.KickMembers)
             .setDMPermission(false),
     async execute(interaction) {
         const target = interaction.options.getUser('target');
         const reason = interaction.options.getString('reason') ?? 'No reason provided';
         
-        const embed = new EmbedBuilder().setDescription(`Banned **${target.username}** 
+        const embed = new EmbedBuilder().setDescription(`Kicked **${target.username}** 
 
         **reason**: ${reason}`).setTitle('Successfully banned').setColor('Green')
 
         await interaction.reply({ embeds: [embed]})
-        await interaction.guild.members.ban(target);
+        await interaction.guild.members.kick(target);
     }
 }

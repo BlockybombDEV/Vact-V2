@@ -1,6 +1,8 @@
 const fs = require('node:fs');
 const path = require('node:path')
 const { Client, Collection, Events, ActivityType } = require('discord.js');
+const mongoose = require('mongoose')
+import('pretty-ms')
 require('dotenv').config()
 
 const client = new Client({ intents: ['Guilds','GuildMembers'] });
@@ -44,4 +46,4 @@ for (const file of commandFiles) {
 }
 
 
-client.login(process.env.TOKEN)
+client.login(process.env.TOKEN).then(() => mongoose.connect(process.env.MONGO_URI))

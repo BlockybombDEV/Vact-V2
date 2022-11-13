@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 import('pretty-ms')
 require('dotenv').config()
 
-const client = new Client({ intents: ['Guilds','GuildMembers'] });
+const client = new Client({ intents: ['Guilds','GuildMembers','DirectMessages'] });
 
 client.commands = new Collection();
 

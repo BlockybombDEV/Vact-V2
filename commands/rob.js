@@ -4,12 +4,12 @@ const { User } = require("../utils/schemas")
 
 module.exports = {
     data: new SlashCommandBuilder()
-    .setName("give")
-    .setDescription("Give money to an user")
+    .setName("rob")
+    .setDescription("Rob an user")
     .addNumberOption(
         option => option
         .setName("amount")
-        .setDescription("Amount to give")
+        .setDescription("Amount you want to steal")
         .setRequired(true)
         .setMinValue(10) //should be more than 100 coins
     )
@@ -23,7 +23,7 @@ module.exports = {
         const user = interaction.member.user
         const victim = interaction.options.getUser('user')
         victimData = await User.findOne({ id: victim.id }) || new User({ id: victim.id }),
-        amount = interaction.options.getNumber("amount")
+        Amount = interaction.options.getNumber("amount")
         userData = await User.findOne({ id: user.id }) || new User({ id: user.id }),
         embed = new EmbedBuilder().setColor('Yellow')
 
@@ -31,6 +31,14 @@ module.exports = {
             return interaction.reply({
                 embeds: [
                     embed.setDescription(`⌛ Stop trying to steal so much, wait for **\`${prettyMilliseconds(userData.cooldowns.steal - Date.now(), { verbose: true, secondsDecimalDigits: 0 })}\`**`)
+                ],
+                ephemeral: true
+            })
+
+            if (victimData.wallet < Amount)
+            return interaction.reply({
+                embeds: [
+                    embed.setDescription(`❌ ${victim} doesn't have more than ${Amount} in their wallet.`)
                 ],
                 ephemeral: true
             })
@@ -43,7 +51,7 @@ module.exports = {
 
         const amount = Math.floor((Math.round(10 / (Math.random() * 10 + 1)) * 10) / 2)
 
-        if (amount <= 5) {
+        if (Amount <= 5) {
             userData.cooldowns.steal = Date.now() + (1000 * 90)
             userData.save()
 
@@ -52,13 +60,13 @@ module.exports = {
             })
         }
 
-        userData.wallet += amount
-        victimData.wallet -= amount
+        userData.wallet += Amount
+        victimData.wallet -= Amount
         userData.save()
         victimData.save()
 
         return interaction.reply({
-            embeds: [ embed.setDescription(`✅ You have stolen \` ${amount} 💎 \` from ${victim}`) ]
+            embeds: [ embed.setDescription(`✅ You have stolen \` ${Amount} 💎 \` from ${victim}`) ]
         })
     }
 }

@@ -12,6 +12,18 @@ const EcoEmbed = new EmbedBuilder().setTitle('Economy commands').setColor('Green
 {name: 'Rob', value: '↳ Rob an user', inline: true}
 )
 
+const ModEmbed = new EmbedBuilder().setTitle('Moderation commands').setColor('Blue')
+.setFields(
+    {name: 'Ban', value: '↳ Bans an user', inline: true},
+    {name: 'Kick', value: '↳ Kicks an user', inline: true},
+    {name: 'Prune', value: '↳ Deletes up to 99 messages', inline: true},
+)
+
+const UtilEmbed = new EmbedBuilder().setTitle('Utility commands').setColor('Gold')
+.setFields(
+    {}
+)
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('help')

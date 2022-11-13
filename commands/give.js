@@ -33,7 +33,7 @@ module.exports = {
         })
 
         userData.bank -= amount
-        RecieverData.wallet += amount
+        RecieverData.bank += amount
         userData.save()
         RecieverData.save()
 

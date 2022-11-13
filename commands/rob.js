@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require("@discordjs/builders")
 const { EmbedBuilder } = require("discord.js")
 const { User } = require("../utils/schemas")
+const prettyMilliseconds = require('pretty-ms');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -51,7 +52,7 @@ module.exports = {
 
         const amount = Math.floor((Math.round(10 / (Math.random() * 10 + 1)) * 10) / 2)
 
-        if (Amount <= 5) {
+        if (amount <= 5) {
             userData.cooldowns.steal = Date.now() + (1000 * 90)
             userData.save()
 

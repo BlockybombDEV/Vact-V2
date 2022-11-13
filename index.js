@@ -14,6 +14,11 @@ client.once(Events.ClientReady, c => {
     console.log(`Bot is Online. Logged in as ${c.user.tag}`);
 });
 
+client.on(Events.InteractionCreate, interaction => {
+    if (!interaction.isButton()) return;
+    console.log(interaction);
+});
+
 client.on(Events.InteractionCreate, async interaction => {
     if (!interaction.isChatInputCommand()) return;
 

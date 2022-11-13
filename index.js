@@ -10,7 +10,7 @@ const client = new Client({ intents: ['Guilds','GuildMembers'] });
 client.commands = new Collection();
 
 client.once(Events.ClientReady, c => {
-    client.user.setActivity(`${client.guilds.cache.size} servers`, { type: ActivityType.Watching});
+    client.user.setActivity(`/help | Serving ${client.guilds.cache.size} servers`, { type: ActivityType.Playing});
     console.log(`Bot is Online. Logged in as ${c.user.tag}`);
 });
 

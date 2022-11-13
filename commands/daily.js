@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders")
 const { EmbedBuilder } = require("discord.js");
-const prettyMilliseconds = import("pretty-ms");
+const prettyMilliseconds = require('pretty-ms');
 const { User } = require("../utils/schemas")
 
 module.exports = {

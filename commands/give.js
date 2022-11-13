@@ -28,7 +28,7 @@ module.exports = {
         embed = new EmbedBuilder().setColor('Yellow')
 
         if (userData.bank < amount) return interaction.reply({
-            embeds: [ embed.setDescription(`💰 You need \` ${amount - userData.wallet} 💎 \` more in your bank to give the amount of money`) ],
+            embeds: [ embed.setDescription(`💰 You need \` ${amount - userData.bank} 💎 \` more in your bank to give the amount of money`) ],
             ephemeral: true
         })
 

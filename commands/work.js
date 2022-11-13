@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require("@discordjs/builders")
 const { EmbedBuilder } = require("discord.js")
 const { User } = require("../utils/schemas")
-import('pretty-ms');
+const prettyMilliseconds = require('pretty-ms');
 
 const jobs = [
     "🧑‍🏫 Teacher",

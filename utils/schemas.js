@@ -7,7 +7,9 @@ const User = new mongoose.Schema({
     cooldowns: {
         work: { type: Date },
         beg: { type: Date },
-        daily: { type: Date }
+        daily: { type: Date },
+        fish: { type: Date },
+        steal: { type: Date }
     }
 })
 

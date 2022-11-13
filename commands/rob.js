@@ -63,6 +63,7 @@ module.exports = {
 
         userData.wallet += Amount
         victimData.wallet -= Amount
+        userData.cooldowns.beg = Date.now() + (1000 * 60)
         userData.save()
         victimData.save()
 

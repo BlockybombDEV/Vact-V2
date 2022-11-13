@@ -77,18 +77,18 @@ module.exports = {
         }
 
         let userData = await Database.findOne({Guild: guild.id, User: target.id});
-        if(!userData) userData = await Database.create({Guild: guild.id, User: targer.id, Infractions: [newInfractionsObject]});
+        if(!userData) userData = await Database.create({Guild: guild.id, User: target.id, Infractions: [newInfractionsObject]});
         else userData.Infractions.push(newInfractionsObject) && await userData.save();
 
 
         const succesEmbed = new EmbedBuilder().setAuthor({name: "Timeout issues", iconURL: guild.iconURL()})
         .setColor('Gold')
         .setDescription([
-            `${target} was issued a timeout for **${ms(ms(duartion), {long: true})}** by ${member}`,
+            `${target} was issued a timeout for **${ms(ms(duration), {long: true})}** by ${member}`,
             `bringing their Timeout total to **${userData.Infractions.length} points**.`,
             `**Reason**: ${reason}`
         ].join("\n"));
 
-        return interaction.reply({embeds: [successEmbed]});
+        return interaction.reply({embeds: [succesEmbed]});
     }
 }

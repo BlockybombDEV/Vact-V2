@@ -22,7 +22,7 @@ module.exports = {
         
         const embed = new EmbedBuilder().setDescription(`Kicked **${target.username}** 
 
-        **reason**: ${reason}`).setTitle('Successfully banned').setColor('Green')
+        **reason**: ${reason}`).setTitle('Successfully kicked').setColor('Green')
 
         await interaction.reply({ embeds: [embed]})
         await interaction.guild.members.kick(target);

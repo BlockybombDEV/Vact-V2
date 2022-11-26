@@ -17,11 +17,11 @@ module.exports = {
 	   	.setColor('Blurple')
 		.addFields(
 			{name: 'Owner', value: `<@${interaction.guild.ownerId}>`, inline: true},
-			{name: 'Roles', value: `${roleStr}`, inline: true},
-			{name: 'Members', value: `${interaction.guild.memberCount}`, inline: true}
+			{name: 'Members', value: `${interaction.guild.memberCount}`, inline: true},
+			{name: 'Roles', value: `${roleStr}`}
 		)
 		.setThumbnail(interaction.guild.iconURL())
-		.setFooter({ text: `ID: ${interaction.guildId} | Created on <t:${Math.floor(interaction.guild.createdTimestamp/1000)}:d> <t:${Math.floor(interaction.guild.createdTimestamp/1000)}:t>`})
+		.setFooter({ text: `ID: ${interaction.guildId} | Created on ${interaction.guild.createdAt.toLocaleDateString()} ${interaction.guild.createdAt.toLocaleTimeString()}`})
 		return interaction.reply({ embeds: [embed] });
 	},
 };

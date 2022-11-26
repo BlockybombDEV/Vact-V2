@@ -12,7 +12,6 @@ module.exports = {
 		})
 
         const embed = new EmbedBuilder()
-		.setDescription(`Created on <t:${Math.floor(interaction.guild.createdTimestamp/1000)}:f>`)
 		.setTitle(`${interaction.guild.name}`)
 	   	.setColor('Blurple')
 		.addFields(

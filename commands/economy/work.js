@@ -44,7 +44,7 @@ module.exports = {
         userData.save()
 
         const workEmbed = new EmbedBuilder()
-            .setDescription(`You worked as a **\` ${job} \`** and earned \` ${amount} 🪙 \``)
+            .setDescription(`You worked as a **\` ${job} \`** and earned \` ${amount} 💎 \``)
             .setColor("Yellow")
 
         return interaction.reply({ embeds: [workEmbed] })

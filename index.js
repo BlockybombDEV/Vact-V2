@@ -22,8 +22,7 @@ client.once(Events.ClientReady, c => {
 
 client.on('ready', () => {
     const Guilds = client.guilds.cache.map(guild => guild.name);
-    console.log(`Vact is currently in
-     ${Guilds}`)
+    console.log(Guilds)
 })
 
 client.on(Events.InteractionCreate, interaction => {

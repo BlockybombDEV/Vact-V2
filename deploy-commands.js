@@ -6,11 +6,11 @@ const client = new Client({ intents: ['Guilds','GuildMembers'] });
 
 const commands = [];
 //Grabs all command files from the directory
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const commandFiles = fs.readdirSync('./commands/utility').filter(file => file.endsWith('.js'));
 
 //Grabs the SlashcommandbuildertoJSon output of each command's data for deployment
 for (const file of commandFiles) {
-    const command = require(`./commands/${file}`);
+    const command = require(`./commands/utility/${file}`);
     commands.push(command.data.toJSON());
 }
 

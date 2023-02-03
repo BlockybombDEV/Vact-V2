@@ -11,7 +11,7 @@ module.exports = {
         .setName("amount")
         .setDescription("Amount to deposit")
         .setRequired(true)
-        .setMinValue(100) //should be more than 100 coins
+        .setMinValue(10) 
     ),
     async execute(interaction) {
         const user = interaction.member.user,

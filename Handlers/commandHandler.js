@@ -1,9 +1,5 @@
-const AsciiTable = require('ascii-table/ascii-table');
-
 function loadCommands(client) {
-    const ascci = require('ascii-table');
     const fs = require('fs');
-    const table = new AsciiTable().setHeading('Commands', "Status");
 
     let commandsArray = [];
 
@@ -19,14 +15,13 @@ function loadCommands(client) {
 
             commandsArray.push(commandFile.data.toJSON());
 
-            table.addRow(file, "loaded");
             continue;
         }
     }
 
     client.application.commands.set(commandsArray);
 
-    return console.log(table.toString(), "\n Loaded commands");
+    return console.log("Successfully loaded commands");
 }
 
 module.exports = {loadCommands};

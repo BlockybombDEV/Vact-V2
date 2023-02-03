@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 import('pretty-ms')
 require('dotenv').config()
 
+const {handleLogs} = require('./Handlers/logHandler')
 const {loadCommands} = require('./Handlers/commandHandler')
 const {loadEvents} = require('./Handlers/eventHandler')
 
@@ -51,4 +52,5 @@ client.on(Events.InteractionCreate, async interaction => {
 client.login(process.env.TOKEN).then(() => mongoose.connect(process.env.MONGO_URI)).then(() => {
     loadEvents(client);
     loadCommands(client);
+    handleLogs(client)
 });
